@@ -11,7 +11,7 @@ import sys
 import string
 import timeit
 
-__author__  = 'Thomas E. Gorochowski, Voigt Lab, MIT; Tarjei Mikkelsen, BTL, Broad Institute'
+__author__  = 'Thomas E. Gorochowski, Voigt Lab, MIT'
 __license__ = 'MIT'
 __version__ = '1.0'
 
