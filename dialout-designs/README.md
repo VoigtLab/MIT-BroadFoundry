@@ -1,4 +1,4 @@
-<img src="../assets/foundry-logo.png" height="120px"/>
+<img src="../foundry-logo.png" height="120px"/>
 
 # Dialout pooled composite part barcodes
 
