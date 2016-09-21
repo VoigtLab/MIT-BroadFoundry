@@ -1,22 +1,22 @@
 <img src="../foundry-logo.png" height="120px"/>
 
-# Dialout pooled composite part barcodes
+# Dialout pooled composite parts
 
 This directory contains scripts and example files for the dialout process of pooled composite parts. For further information see Woodruff et al. (in preparation).
 
-## 1. Generate data of the pools of composite parts
+## 1. Generate data describing the pooled composite parts
 
-
+TODO
 
 ## 2. Dialout barcodes for composite parts
 
-Once the pool has been sequenced the raw FASTQ file is interrogated to assess the designs that are present and the associated barcodes for each. This functionality is contained within the `dialout_barcodes.py` script
+Once the pool has been sequenced the raw FASTQ file is interrogated to assess the designs that are present and the associated barcodes for each. This functionality is contained within the `dialout_barcodes.py` script. This takes as input regular expressions of each design with variable `N` regions of fixed lengths that correspond to potential barcode regions (see `./example/regular-exprs/` folder for examples), two FASTQ files containing the raw sequencing data for each paired read (order of reads in each file must match), the length of the primer regions, the indexes of the two barcodes (for retrieval), plus the indexes of other variable regions to extract (given as comma separated list of indexes with no spaces), and finally the output path for generated file to be placed.
 
     python ./bin/dialout_barcodes.py ./example/regular-exprs/AmeR_2NOR_regexs.txt seq_data_read_1.fastq seq_data_read_2.fastq 20 20 1 2 3 ./
 
+Once this is run four files are generated:
 
-
-- `dialout_designs.csv` - 
+- `dialout_designs.csv` - information about the barcodes found for each of the possible designs.
 
 - `dialout_barcodes.csv` - details of all barcoded designs. Not all will be suitable for retrieval, but data is useful for analyzing barcoding process and troubleshooting issues.
 
@@ -26,7 +26,7 @@ Once the pool has been sequenced the raw FASTQ file is interrogated to assess th
 
 ## 3. Analyze the dialout process
 
-Analysis of the dialout process can be performed to give statistics on the success of barcoding designs containing different combinations of parts. The `dialout_part_analysis.py` script analyzes the `dialout_barcodes.csv` file generated in the previous step.
+Analysis of the dialout process can be performed to give statistics on the success of barcoding designs containing different combinations of parts. The `dialout_part_analysis.py` script analyzes the `dialout_designs.csv` file generated in the previous step.
 
     python ./bin/dialout_part_analysis.py dialout_barcodes.csv output_analysis.csv
 
