@@ -1,28 +1,37 @@
 <img src="../assets/foundry-logo.png" height="120px"/>
 
-# Dialout composite part barcodes
+# Dialout pooled composite part barcodes
 
+This directory contains scripts and example files for the dialout process of pooled composite parts. For further information see Woodruff et al. (in preparation).
 
+## 1. Generate data of the pools of composite parts
 
-## 1. Make the pools of composite parts
 
 
 ## 2. Dialout barcodes for composite parts
 
+Once the pool has been sequenced the raw FASTQ file is interrogated to assess the designs that are present and the associated barcodes for each. This functionality is contained within the `dialout_barcodes.py` script
 
-- `dialout_designs.csv`
-
-- `dialout_barcodes.csv`
-
-- `dialout_summary.txt`
+    python ./bin/dialout_barcodes.py ./example/regular-exprs/AmeR_2NOR_regexs.txt seq_data_read_1.fastq seq_data_read_2.fastq 20 20 1 2 3 ./
 
 
-## 3. Analyse the dialout process
 
-Analysis of the dialout process can be performed to give statistics on the success of barcoding designs containing different combinations of parts. 
+- `dialout_designs.csv` - 
+
+- `dialout_barcodes.csv` - details of all barcoded designs. Not all will be suitable for retrieval, but data is useful for analyzing barcoding process and troubleshooting issues.
+
+- `dialout_design_unique_barcodes.csv` - details of all the uniquely barcoded designs that are suitable for retrieval.
+
+- `dialout_summary.txt` - a summary of the dialout process including information regarding the run-time, total reads, matched reads, uniquely barcoded designs, etc.
+
+## 3. Analyze the dialout process
+
+Analysis of the dialout process can be performed to give statistics on the success of barcoding designs containing different combinations of parts. The `dialout_part_analysis.py` script analyzes the `dialout_barcodes.csv` file generated in the previous step.
+
+    python ./bin/dialout_part_analysis.py dialout_barcodes.csv output_analysis.csv
 
 ## 4. Primer design for composite part barcodes
 
-The final step in the process is to automatically generate suitable primers for the barcodes found from the sequencing data. We recommend the standard Primer3 settings in the `dialout_primer3_settings.txt` file. This can be used as input for the `dialout_primer_design.py` script with the input barcode file generated from the dialout process, the indexes of the forward and reverse barcode to use and any short sequences that will be present in the backbone of the circularised vector. An example of calling this script is as follows, with the generated primers contained in the `output_primers.csv` file:
+The final step in the process is to automatically generate suitable primers for the barcodes found from the sequencing data. We recommend the standard Primer3 settings in the `dialout_primer3_settings.txt` file. This can be used as input for the `dialout_primer_design.py` script with the input barcode file generated from the dialout process, the indexes of the forward and reverse barcode to use and any short sequences that will be present in the backbone of the circularized vector. An example of calling this script is as follows, with the generated primers contained in the `output_primers.csv` file:
 
-	python ./bin/dialout_primer_design.py ./bin/dialout_primer3_settings.txt ./example/input_barcodes.csv 3 2 output_primers.csv GC GC
+    python ./bin/dialout_primer_design.py ./bin/dialout_primer3_settings.txt ./example/input_barcodes.csv 3 2 output_primers.csv GC GC
