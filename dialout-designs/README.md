@@ -4,9 +4,13 @@
 
 This directory contains scripts and example files for the dialout process of pooled composite parts. For further information see Woodruff et al. (in preparation).
 
-## 1. Generate data describing the pooled composite parts
+## 1. Linker design
 
-TODO
+To choose a set of compatible and orthogonal linkers (scars) the `llinker_design.py` script it used. An example of it's use is:
+
+    python ./bin/linker_design.py 4 2 -1 2 ./example/linker-design/seed_scars.txt None out_scars.txt
+
+This will generate scars of length 4 bp with a maximum homology of 2 bp. It will enumerate all possible linkers and use `seed_scars.txt` as a set of initial selected scars before outputing the results to `out_scars.txt`. To see full options for the script use `python ./bin/linker_design.py -h`.
 
 ## 2. Dialout barcodes for composite parts
 
