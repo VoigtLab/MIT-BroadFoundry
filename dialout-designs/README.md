@@ -6,7 +6,7 @@ This directory contains scripts and example files for the dialout process of poo
 
 ## 1. Linker design
 
-To choose a set of compatible and orthogonal linkers (scars) the `llinker_design.py` script it used. An example of it's use is:
+To choose a set of compatible and orthogonal linkers (scars) the `linker_design.py` script it used. An example of it's use is:
 
     python ./bin/linker_design.py 4 2 -1 2 ./example/linker-design/seed_scars.txt None out_scars.txt
 
