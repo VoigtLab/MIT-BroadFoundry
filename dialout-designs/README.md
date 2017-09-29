@@ -2,7 +2,7 @@
 
 # Dialout pooled composite parts
 
-This directory contains scripts and example files for the dialout process of pooled composite parts. For further information see [Woodruff _et al._ "Registry in a tube: multiplexed pools of retrievable parts for genetic design space exploration", _Nucleic Acids Research_ *45*, 1553-1565, 2017](http://nar.oxfordjournals.org/content/early/2016/12/21/nar.gkw1226.full).
+This directory contains scripts and example files for the dialout process of pooled composite parts. For further information see [Woodruff _et al._ "Registry in a tube: multiplexed pools of retrievable parts for genetic design space exploration", _Nucleic Acids Research_ **45**, 1553-1565, 2017](http://nar.oxfordjournals.org/content/early/2016/12/21/nar.gkw1226.full).
 
 ## 1. Linker design
 
