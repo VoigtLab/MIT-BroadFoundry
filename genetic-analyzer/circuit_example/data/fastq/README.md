@@ -1,0 +1,1 @@
+This directory should contain the sequencing data (FASTQ files).
